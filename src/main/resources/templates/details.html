@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Details</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../static/css/w3.css" th:href="@{css/w3.css}" />
+</head>
+<body>
+<div th:replace="header :: header"></div>
+<div class=" w3-margin">
+    <div class=" w3-margin">
+        <div class=" w3-margin">
+            <div class="w3-container w3-center w3-card-4 w3-light-gray w3-margin">
+                <h2>Details</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<table >
+    <tr>
+        <td>
+            <table >
+                <tr>
+                    <td>
+                        <img src="../static/img/concert1.jpeg" th:src="@{/img/concert1.jpeg}" />
+                    </td>
+                    <td>
+                        <table >
+                            <tr>
+                                <td>
+                                    <textarea rows="3" cols="50">
+Le nom de consert:CLEEVELAND TANIA LEURS AMIS
+Le nom de Chanteur:YÉ BON KÉ SA
+La Ville:Toulouse
+La Date:01/05/2017
+                                    </textarea>
+                                    <img src="../static/img/etoile.png" th:src="@{/img/etoile.png}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <textarea rows="4" cols="80">
+Cleveland et Tania nous font rire Tous les soirs Depuis 6 mois sur les différents réseaux sociaux,
+Ils ont enfin décidé de monter sur les planches à Toulouse pour notre plus grand fou rire.
+Accompagnés d'invités surprise aussi déjanté et drôle qu'eux,
+le 30 avril à partir de 20h30 le salon Vianey sera le théâtre du nouveau souffle De la comédie.
+                                    </textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table >
+                            <tr>
+                                <td>
+                                    <form action="/panier" method="get">
+                                        <input name='btn' value='Ajouter' type='submit' /><br/><br/>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Quantity:<br/>
+                                    <select>
+                                        <option value ="1">1</option>
+                                        <option value ="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td>
+                        <img src="../static/img/map.png" th:src="@{/img/map.png}" th:width="550" th:lang="550"/>
+                    </td>
+                    <td>
+                        <textarea rows="16" cols="60">
+Address:
+118 Route de Narbonne,31062 Toulouse,France
+
+Access:
+Métro B Universite Paul Sabatier
+                        </textarea>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

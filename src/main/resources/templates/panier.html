@@ -6,7 +6,196 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="../static/css/w3.css" th:href="@{css/w3.css}" />
 </head>
+<script type="text/javascript">
+    function openCarte(){
+        var x = document.getElementById("carte");
+        var p = document.getElementById("paypal");
+        x.style.display = "block";
+        p.style.display="none";
+    }
+    function openPaypal(){
+        var p = document.getElementById("paypal");
+        var x =document.getElementById("carte");
+        p.style.display = "block";
+        x.style.display="none";
+    }
+</script>
 <body>
+
 <div th:replace="header :: header"></div>
+<div class=" w3-margin">
+    <div class=" w3-margin">
+        <div class=" w3-margin">
+            <div class="w3-container w3-center w3-card-4 w3-light-gray w3-margin">
+                <h2>Panier</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<table align="center">
+    <tr>
+        <td>
+            <a class="w3-bar-item w3-button" th:href="@{/paiement}">
+                <img src="../static/img/concert1.jpeg" th:src="@{/img/concert1.jpeg}" th:width="200"/>
+            </a>
+        </td>
+        <td>
+            <textarea rows="6" cols="20">
+le nom de concert
+le nom de chanteur
+la ville
+la date
+            </textarea>
+        </td>
+        <td>
+            <textarea rows="6" cols="20">
+Descriptions
+            </textarea>
+        </td>
+        <td>
+            prix:50<br/>
+            <select>
+                <option value ="1">1</option>
+                <option value ="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </td>
+        <td>
+            <br/>
+        </td>
+        <td>
+            <img src="../static/img/delete.jpeg" th:src="@{/img/delete.jpeg}" height="50" width="50"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="../static/img/concert2.jpeg" th:src="@{/img/concert2.jpeg}" th:width="200"/>
+        </td>
+        <td>
+            <textarea rows="6" cols="20">
+le nom de concert
+le nom de chanteur
+la ville
+la date
+            </textarea>
+        </td>
+        <td>
+            <textarea rows="6" cols="20">
+Descriptions
+            </textarea>
+        </td>
+        <td>
+            prix:50<br/>
+            <select>
+                <option value ="1">1</option>
+                <option value ="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </td>
+        <td>
+            <br/>
+        </td>
+        <td>
+            <img src="../static/img/delete.jpeg" th:src="@{/img/delete.jpeg}" height="50" width="50"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="../static/img/concert3.jpeg" th:src="@{/img/concert3.jpeg}" th:width="200"/>
+        </td>
+        <td>
+            <textarea rows="6" cols="20">
+le nom de concert
+le nom de chanteur
+la ville
+la date
+            </textarea>
+        </td>
+        <td>
+            <textarea rows="6" cols="20">
+Descriptions
+            </textarea>
+        </td>
+        <td>
+            prix:50<br/>
+            <select>
+                <option value ="1">1</option>
+                <option value ="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </td>
+        <td>
+            <br/>
+        </td>
+        <td>
+            <img src="../static/img/delete.jpeg" th:src="@{/img/delete.jpeg}" height="50" width="50"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="../static/img/concert4.jpeg" th:src="@{/img/concert4.jpeg}" th:width="200"/>
+        </td>
+        <td>
+            <textarea rows="6" cols="20">
+le nom de concert
+le nom de chanteur
+la ville
+la date
+            </textarea>
+        </td>
+        <td>
+            <textarea rows="6" cols="20">
+Descriptions
+            </textarea>
+        </td>
+        <td>
+            prix:50<br/>
+            <select>
+                <option value ="1">1</option>
+                <option value ="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </td>
+        <td>
+            <br/>
+        </td>
+        <td>
+            <img src="../static/img/delete.jpeg" th:src="@{/img/delete.jpeg}" height="50" width="50"/>
+        </td>
+    </tr>
+</table>
+<table align="center">
+    <tr>
+        <td>
+            <div class="w3-bar w3-black">
+                <button class="w3-bar-item w3-button" onclick="openCarte()">CB</button>
+                <button class="w3-bar-item w3-button" onclick="openCarte()">VISA</button>
+                <button class="w3-bar-item w3-button" onclick="openPaypal()">Paypal</button>
+            </div>
+
+            <div id="carte" name="carte" >
+                <p>numero:<input name="numero" />
+                    CSC:<input name="csc" />
+                    <form action="/panier" method="get">
+                        <input name='btn' value='Payer' type='submit' /><br/><br/>
+                    </form>
+                </p>
+            </div>
+
+            <div id="paypal" name="paypal" style="display:none">
+                <p>compte:<input name="compte"/>
+                    pwd:<input name="pwd"/>
+                    <form action="/panier" method="get">
+                        <input name='btn' value='Payer' type='submit' /><br/><br/>
+                    </form>
+                </p>
+            </div>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

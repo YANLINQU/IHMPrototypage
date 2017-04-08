@@ -8,8 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class PanierController {
+
     @RequestMapping("/panier")
     public String panier(){
         return "panier";
+    }
+
+    @RequestMapping("/paiement")
+    public String paiement(){
+        return "paiement";
     }
 }

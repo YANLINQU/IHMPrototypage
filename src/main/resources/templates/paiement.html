@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Payer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../static/css/w3.css" th:href="@{css/w3.css}" />
+</head>
+<script type="text/javascript">
+    function openCarte(){
+        var x = document.getElementById("carte");
+        var p = document.getElementById("paypal");
+        x.style.display = "block";
+        p.style.display="none";
+    }
+    function openPaypal(){
+        var p = document.getElementById("paypal");
+        var x =document.getElementById("carte");
+        p.style.display = "block";
+        x.style.display="none";
+    }
+    function sendNumero(){
+        var s = document.getElementById("send");
+        if(s.style.display == "none"){
+            s.style.display = "block";
+        }else{
+            s.style.display = "none";
+        }
+    }
+    function transfer(){
+        var s = document.getElementById("numero");
+        alert("transfer le billet au numero:"+ s.value);
+    }
+
+</script>
+<body>
+<div th:replace="header :: header"></div>
+<div class=" w3-margin">
+    <div class=" w3-margin">
+        <div class=" w3-margin">
+            <div class="w3-container w3-center w3-card-4 w3-light-gray w3-margin">
+                <h2>Paiement</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<table align="center">
+    <tr>
+        <td>
+            <a class="w3-bar-item w3-button" th:href="@{/paiement}">
+                <img src="../static/img/concert1.jpeg" th:src="@{/img/concert1.jpeg}" th:width="200"/>
+            </a>
+        </td>
+        <td>
+            <textarea rows="6" cols="20">
+le nom de concert
+le nom de chanteur
+la ville
+la date
+            </textarea>
+        </td>
+        <td>
+            <textarea rows="6" cols="20">
+Descriptions
+            </textarea>
+        </td>
+        <td>
+            prix:50
+        </td>
+        <td>
+            <img src="../static/img/send.jpeg" th:src="@{/img/send.jpeg}" height="50" width="50" onclick="sendNumero()"/>
+        </td>
+        <td>
+            <div id="send" style="display: none">
+                <table class="w3-table w3-border-black" border="1">
+                    <tr>
+                        <td colspan="2">
+                            Numero de mobile
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input name="numero" id="numero"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button onclick="sendNumero()">No</button>
+                        </td>
+                        <td>
+                            <button onclick="transfer()">Yes</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+<table align="center">
+    <tr>
+        <td>
+            <div class="w3-bar w3-black">
+                <button class="w3-bar-item w3-button" onclick="openCarte()">CB</button>
+                <button class="w3-bar-item w3-button" onclick="openCarte()">VISA</button>
+                <button class="w3-bar-item w3-button" onclick="openPaypal()">Paypal</button>
+            </div>
+
+            <div id="carte" name="carte" >
+                <p>numero:<input name="numero" />
+                    CSC:<input name="csc" />
+                    <form action="/panier" method="get">
+                        <input name='btn' value='Payer' type='submit' /><br/><br/>
+                    </form>
+                </p>
+            </div>
+
+            <div id="paypal" name="paypal" style="display:none">
+                <p>compte:<input name="compte"/>
+                    pwd:<input name="pwd"/>
+                    <form action="/panier" method="get">
+                        <input name='btn' value='Payer' type='submit' /><br/><br/>
+                    </form>
+                </p>
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
