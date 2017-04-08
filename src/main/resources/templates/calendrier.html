@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>calandrier</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/zzsc.css" />
+	<link rel="stylesheet" type="text/css" href="../static/css/dcalendar.picker.css"/>
+</head>
+<body>
+<div th:fragment="calendrier">
+<script>
+    function  uservisiteur() {
+        var client = document.getElementById("client");
+        var user_visiteur=document.getElementsByName("user_visiteur");
+        var len=user_visiteur.length;
+        while(len){
+            user_visiteur[len-1].value=client.innerHTML;
+            len--;
+        }
+    }
+    function disp_alert()
+    {
+        alert("mettre les billets dans la panier！！")
+    }
+</script>
+	<div class="zzsc-container">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<form action="/selectConcerts" method="post">
+						Date:<input id='mydatepicker' name="mydatepicker" type='text'/>
+						<input value="Chercher" type="submit" />
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/dcalendar.picker.js"></script>
+	<script type="text/javascript">
+		$('#mydatepicker').dcalendarpicker();
+		$('#mydatepicker2').dcalendarpicker({
+			format:'yyyy-mm-dd'
+		});
+		$('#mycalendar').dcalendar();
+
+
+
+	</script>
+
+</div>
+</body>
+</html>
