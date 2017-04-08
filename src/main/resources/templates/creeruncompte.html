@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Creer un compte</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../static/css/w3.css" th:href="@{css/w3.css}" />
+</head>
+<body>
+<div th:replace="header :: header"></div>
+<div class="w3-margin">
+    <div class="w3-margin">
+        <div class="w3-margin">
+
+            <form class="w3-container w3-card-4 w3-light-grey w3-margin" th:action="@{/}" method="post">
+                <div class="w3-container w3-center">
+                    <h2>Creer un compte</h2>
+                    <p>
+                        <label>Nom:</label>
+                        <input class="w3-input w3-border w3-round" name="identifiant" type="text"/></p>
+                    <p>
+                        <label>Prenom:</label>
+                        <input class="w3-input w3-border w3-round-large" name="mdp" type="text"/></p>
+                    <p>
+                        <label>Adresse e-mail:</label>
+                        <input class="w3-input w3-border w3-round" name="identifiant" type="text"/></p>
+                    <p>
+                        <label>Mot de passe</label>
+                        <input class="w3-input w3-border w3-round-small" name="mdp" type="text"/></p>
+
+
+                    <p>
+                        <label>Confirmation de mote de passe:</label>
+                        <input class="w3-input w3-border w3-round" name="identifiant" type="text"/></p>
+                    <p>
+                        <label>Numero de téléphone:</label>
+                        <input class="w3-input w3-border w3-round-large" name="mdp" type="text"/></p>
+                    <p>
+                        <button class="w3-button w3-black" type="submit">Valider</button></p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
