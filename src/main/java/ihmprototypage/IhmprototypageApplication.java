@@ -8,5 +8,6 @@ public class IhmprototypageApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(IhmprototypageApplication.class, args);
+		System.out.println("Hello IHM");
 	}
 }

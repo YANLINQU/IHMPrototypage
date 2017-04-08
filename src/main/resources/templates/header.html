@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content -Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../static/css/w3.css" th:href="@{css/w3.css}" />
+</head>
+<div th:fragment="header">
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="w3-bar w3-black ">
+                <a class="w3-bar-item w3-button" href="#" th:href="@{/}">HOME</a>
+                <a class="w3-bar-item w3-button" href="#" th:href="@{rechercher}">Rechercher un billet</a>
+                <a class="w3-bar-item w3-button w3-black w3-right" href="#" th:href="@{connecter}">se connecter</a>
+                <a class="w3-bar-item w3-button w3-black w3-right" href="#" th:href="@{panier}">Panier</a>
+            </div>
+        </nav>
+    </div>
+</div>
+</html>
