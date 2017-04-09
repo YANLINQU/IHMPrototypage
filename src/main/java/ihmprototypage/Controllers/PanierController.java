@@ -18,4 +18,9 @@ public class PanierController {
     public String paiement(){
         return "paiement";
     }
+
+    @RequestMapping("/code")
+    public String code(){
+        return "code";
+    }
 }
