@@ -6,6 +6,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="../static/css/w3.css" th:href="@{css/w3.css}" />
 </head>
+<script>
+    function oublie(){
+        var reg =  /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+        var iden = document.getElementById("identifiant");
+        if(reg.test(iden.value)){
+            alert("Nous vous avons déjà envoyé un mail pour modifier le mot de passe!");
+        }else{
+            alert("Votre e-mail n'est pas correct!");
+        }
+    }
+</script>
 <body>
 <div th:replace="header :: header"></div>
 
@@ -19,14 +30,18 @@
         <h2>Se connecter</h2>
         <p>
             <label>Identifiant ou adresse e-mail</label>
-            <input class="w3-input w3-border w3-round" name="identifiant" type="text"/></p>
+            <input class="w3-input w3-border w3-round" name="identifiant" id="identifiant" type="text"/></p>
         <p>
             <label>Mot de passe</label>
             <input class="w3-input w3-border w3-round-large" name="mdp" type="text"/></p>
 
 
             <p>
-                <button class="w3-button w3-black" type="submit">Connexion</button></p>
+                <button class="w3-button w3-black" type="submit">Connexion</button>
+            </p>
+            <p>
+                <a href="#" onclick="oublie()">mot de pass oublié </a>
+            </p>
         </div>
     </form>
             <form class="w3-container w3-card-4  w3-margin" th:action="@{/creeruncompte}" method="get">
