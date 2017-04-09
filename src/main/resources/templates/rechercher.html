@@ -6,6 +6,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="../static/css/w3.css" th:href="@{css/w3.css}" />
 </head>
+<script>
+    function afficheList(){
+        var l = document.getElementById("list");
+        l.style.display = "block";
+    }
+</script>
 <body>
 <div th:replace="header :: header"></div>
 <div class="w3-margin">
@@ -27,10 +33,10 @@
             <div class=" w3-center">
             <button onclick="myFunction('Demo1')" class="w3-button w3-black ">Recherche par Théme</button>
                 <div id="Demo1" class="w3-hide w3-animate-zoom">
-                    <a href="#" class="w3-button w3-left-align">Pop</a>
-                    <a href="#" class="w3-button  w3-left-align">Variété</a>
-                    <a href="#" class="w3-button  w3-left-align">Electro</a>
-                    <a href="#" class="w3-button  w3-left-align">Hip-pop</a>
+                    <a href="#" class="w3-button w3-left-align ">Pop</a>
+                    <a href="#" class="w3-button  w3-left-align ">Variété</a>
+                    <a href="#" class="w3-button  w3-left-align ">Electro</a>
+                    <a href="#" class="w3-button  w3-left-align ">Hip-pop</a>
                 </div>
             <button onclick="myFunction('Demo2')" class="w3-button  w3-black ">Recherche par Lieux</button>
                 <div id="Demo2" class="w3-hide w3-animate-zoom">
@@ -81,7 +87,7 @@
         <div class="w3-margin" >
             <div class="w3-container w3-center">
                 <input type="text" class="w3-input"  name="search" placeholder="Rechercher un artiste..."/>
-                <button class="w3-button w3-black" type="submit">Rechercher</button>
+                <button class="w3-button w3-black" type="submit" onclick="afficheList()">Rechercher</button>
             </div>
         </div>
     </div>
@@ -90,186 +96,219 @@
 <br/><br/>
 
 
-<div class="w3-margin">
+<div id="list" style="display: none">
     <div class="w3-margin">
         <div class="w3-margin">
-            <div class="w3-container w3-center w3-card-4 w3-margin">
+            <div class="w3-margin">
+                <div class="w3-container w3-center w3-card-4 w3-margin">
 
-<h3>Concert à venir</h3>
+    <h3>Concert à venir</h3>
 
-            <table class="w3-table-all w3-hoverable">
-                <tr>
-                    <th>Artiste</th>
-                    <th>Titre</th>
-                    <th>Ville</th>
-                    <th>Lieux</th>
-                    <th>Thème</th>
-                    <th>Date</th>
-                    <th>Nombre de place</th>
-                    <th>Prix</th>
-                </tr>
-                <tr>
-                    <td>Tory Lanez</td>
-                    <td>50 shade</td>
-                    <td>Paris</td>
-                    <td>Bercy</td>
-                    <td>Hip-pop</td>
-                    <th>28/06/2017</th>
-                    <td>
-                        35 disponibles
-                    </td>
-                    <td>30.00 e</td>
-                    <td>
-                        <button class="w3-button w3-black" type="submit">Detail</button>
-                    </td>
-                    <td>
-                        <button class="w3-button w3-black" type="submit">Ajouter au panier</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>David Guetta</td>
-                    <td>I'm me</td>
-                    <td>Lille</td>
-                    <td>Stade</td>
-                    <td>Electro</td>
-                    <th>12/07/2017</th>
-                    <td>
-                        65 disponibles
+                <table class="w3-table-all w3-hoverable">
+                    <tr>
+                        <th>Artiste</th>
+                        <th>Titre</th>
+                        <th>Ville</th>
+                        <th>Lieux</th>
+                        <th>Thème</th>
+                        <th>Date</th>
+                        <th>Nombre de place</th>
+                        <th>Prix</th>
+                    </tr>
+                    <tr>
+                        <td>Tory Lanez</td>
+                        <td>50 shade</td>
+                        <td>Paris</td>
+                        <td>Bercy</td>
+                        <td>Hip-pop</td>
+                        <th>28/06/2017</th>
+                        <td>
+                            35 disponibles
+                        </td>
+                        <td>30.00 e</td>
+                        <td>
+                            <form action="/details" method="get">
+                                <input class="w3-button w3-black" value="Detail" type="submit" />
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/panier" method="get">
+                                <input class="w3-button w3-black" value="Ajouter au panier" type="submit" />
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>David Guetta</td>
+                        <td>I'm me</td>
+                        <td>Lille</td>
+                        <td>Stade</td>
+                        <td>Electro</td>
+                        <th>12/07/2017</th>
+                        <td>
+                            65 disponibles
 
-                    </td>
-                    <td>40.00 e</td>
-                    <td>
-                        <button class="w3-button w3-black" type="submit">Detail</button>
-                    </td>
-                    <td>
-                        <button class="w3-button w3-black" type="submit">Ajouter au panier</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Michael Jackson</td>
-                    <td>i'm alive</td>
-                    <td>Paris</td>
-                    <td>Bercy</td>
-                    <td>POP</td>
-                    <th>01/08/2017</th>
-                    <td>
-                        28 disponibles
+                        </td>
+                        <td>40.00 e</td>
+                        <td>
+                            <form action="/details" method="get">
+                                <input class="w3-button w3-black" value="Detail" type="submit" />
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/panier" method="get">
+                                <input class="w3-button w3-black" value="Ajouter au panier" type="submit" />
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Michael Jackson</td>
+                        <td>i'm alive</td>
+                        <td>Paris</td>
+                        <td>Bercy</td>
+                        <td>POP</td>
+                        <th>01/08/2017</th>
+                        <td>
+                            28 disponibles
 
-                    </td>
-                    <td>40.00 e</td>
-                    <td>
-                        <button class="w3-button w3-black" type="submit">Detail</button>
-                    </td>
-                    <td>
-                        <button class="w3-button w3-black" type="submit">Ajouter au panier</button>
-                    </td>
-                </tr>
+                        </td>
+                        <td>40.00 e</td>
+                        <td>
+                            <form action="/details" method="get">
+                                <input class="w3-button w3-black" value="Detail" type="submit" />
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/panier" method="get">
+                                <input class="w3-button w3-black" value="Ajouter au panier" type="submit" />
+                            </form>
+                        </td>
+                    </tr>
 
-                <tr>
-                    <td>johnny hallyday</td>
-                    <td>RESTER VIVANT</td>
-                    <td>Paris</td>
-                    <td>Stade de France</td>
-                    <td>Variété</td>
-                    <th>05/08/2017</th>
-                    <td>
-                        42 disponibles
+                    <tr>
+                        <td>johnny hallyday</td>
+                        <td>RESTER VIVANT</td>
+                        <td>Paris</td>
+                        <td>Stade de France</td>
+                        <td>Variété</td>
+                        <th>05/08/2017</th>
+                        <td>
+                            42 disponibles
 
-                    </td>
-                    <td>25.00 e</td>
-                    <td>
-                        <button class="w3-button w3-black" type="submit">Detail</button>
-                    </td>
-                    <td>
-                        <button class="w3-button w3-black" type="submit">Ajouter au panier</button>
-                    </td>
-                </tr>
+                        </td>
+                        <td>25.00 e</td>
+                        <td>
+                            <form action="/details" method="get">
+                                <input class="w3-button w3-black" value="Detail" type="submit" />
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/panier" method="get">
+                                <input class="w3-button w3-black" value="Ajouter au panier" type="submit" />
+                            </form>
+                        </td>
+                    </tr>
 
-                <tr>
-                    <td>Stony</td>
-                    <td>Je l'aime</td>
-                    <td>Bordeaux</td>
-                    <td>Atrium</td>
-                    <td>Zouk</td>
-                    <th>16/08/2017</th>
-                    <td>
-                        36 disponibles
+                    <tr>
+                        <td>Stony</td>
+                        <td>Je l'aime</td>
+                        <td>Bordeaux</td>
+                        <td>Atrium</td>
+                        <td>Zouk</td>
+                        <th>16/08/2017</th>
+                        <td>
+                            36 disponibles
 
-                    </td>
-                    <td>50.00 e</td>
-                    <td>
-                        <button class="w3-button w3-black" type="submit">Detail</button>
-                    </td>
-                    <td>
-                        <button class="w3-button w3-black" type="submit">Ajouter au panier</button>
-                    </td>
-                </tr>
+                        </td>
+                        <td>50.00 e</td>
+                        <td>
+                            <form action="/details" method="get">
+                                <input class="w3-button w3-black" value="Detail" type="submit" />
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/panier" method="get">
+                                <input class="w3-button w3-black" value="Ajouter au panier" type="submit" />
+                            </form>
+                        </td>
+                    </tr>
 
-                <tr>
-                    <td>Beyonce</td>
-                    <td>Shine</td>
-                    <td>Londres</td>
-                    <td>Inconnue</td>
-                    <td>pop</td>
-                    <th>23/10/2017</th>
-                    <td>
-                        5 disponibles
+                    <tr>
+                        <td>Beyonce</td>
+                        <td>Shine</td>
+                        <td>Londres</td>
+                        <td>Inconnue</td>
+                        <td>pop</td>
+                        <th>23/10/2017</th>
+                        <td>
+                            5 disponibles
 
-                    </td>
-                    <td>35.00 e</td>
-                    <td>
-                        <button class="w3-button w3-black" type="submit">Detail</button>
-                    </td>
-                    <td>
-                        <button class="w3-button w3-black" type="submit">Ajouter au panier</button>
-                    </td>
-                </tr>
+                        </td>
+                        <td>35.00 e</td>
+                        <td>
+                            <form action="/details" method="get">
+                                <input class="w3-button w3-black" value="Detail" type="submit" />
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/panier" method="get">
+                                <input class="w3-button w3-black" value="Ajouter au panier" type="submit" />
+                            </form>
+                        </td>
+                    </tr>
 
-                <tr>
-                    <td>Rihanna</td>
-                    <td>HO NANA !</td>
-                    <td>ParIS</td>
-                    <td>Bercy</td>
-                    <td>R and B</td>
-                    <th>26/10/2017</th>
-                    <td>
-                        26 disponibles
+                    <tr>
+                        <td>Rihanna</td>
+                        <td>HO NANA !</td>
+                        <td>ParIS</td>
+                        <td>Bercy</td>
+                        <td>R and B</td>
+                        <th>26/10/2017</th>
+                        <td>
+                            26 disponibles
 
-                    </td>
-                    <td>50.00 e</td>
-                    <td>
-                        <button class="w3-button w3-black" type="submit">Detail</button>
-                    </td>
-                    <td>
-                        <button class="w3-button w3-black" type="submit">Ajouter au panier</button>
-                    </td>
-                </tr>
+                        </td>
+                        <td>50.00 e</td>
+                        <td>
+                            <form action="/details" method="get">
+                                <input class="w3-button w3-black" value="Detail" type="submit" />
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/panier" method="get">
+                                <input class="w3-button w3-black" value="Ajouter au panier" type="submit" />
+                            </form>
+                        </td>
+                    </tr>
 
-                <tr>
-                    <td>TOmy tom</td>
-                    <td>ON veut 20</td>
-                    <td>Paris</td>
-                    <td>théatre</td>
-                    <td>Country</td>
-                    <th>22/11/2017</th>
-                    <td>
-                        89 disponibles
+                    <tr>
+                        <td>TOmy tom</td>
+                        <td>ON veut 20</td>
+                        <td>Paris</td>
+                        <td>théatre</td>
+                        <td>Country</td>
+                        <th>22/11/2017</th>
+                        <td>
+                            89 disponibles
 
-                    </td>
-                    <td>40.00 e</td>
-                    <td>
-                        <button class="w3-button w3-black" type="submit">Detail</button>
-                    </td>
-                    <td>
-                        <button class="w3-button w3-black" type="submit">Ajouter au panier</button>
-                    </td>
-                </tr>
+                        </td>
+                        <td>40.00 e</td>
+                        <td>
+                            <form action="/details" method="get">
+                                <input class="w3-button w3-black" value="Detail" type="submit" />
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/panier" method="get">
+                                <input class="w3-button w3-black" value="Ajouter au panier" type="submit" />
+                            </form>
+                        </td>
+                    </tr>
 
-            </table>
+                </table>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 </body>
 </html>
